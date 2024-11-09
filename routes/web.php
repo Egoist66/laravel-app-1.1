@@ -25,3 +25,5 @@ Route::get('/api', fn() => Response::json([
         'city' => 'London',
     ]
 ]));
+
+
