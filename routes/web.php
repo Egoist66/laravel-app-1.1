@@ -1,35 +1,35 @@
 <?php
 
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-
 
 
 Route::get('/', function () {
 
-   
 
-    return view('welcome');
+    /** @var \Illuminate\Support\Facades\Request $dep */
+
+
+    //$dep = app('request');
+    $dep = app()->make('request');
+
+
+    /** @var \Illuminate\Routing\Router $router */
+    $router = app()->make('router');
+   
+    return view('welcome', ['dep' => $dep, 'router' => $router]);
+
+    
 })->name('home');
 
-
-Route::get('/about', fn(Request $request) => dump($request->getMethod()));
-
-Route::get('/api', fn() => Response::json([
-    [
-        'name' => 'John Doe',
-        'age' => 30,
-        'city' => 'New York',
-
-    ],
-    [
-        'name' => 'Jane Doe',
-        'age' => 25,
-        'city' => 'London',
-    ]
-]));
+Route::get('/login', action: fn() => '<h2>Login</h2>')->name('login');
 
 
+Route::get('/about', action: fn() => '<h2>About</h2>')->name('about');
 
+Route::get('/api', action: function (): JsonResponse {
+
+    return response()->json((array) app());
+});
