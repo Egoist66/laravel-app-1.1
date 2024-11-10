@@ -21,7 +21,7 @@ Route::get('/', function () {
    
     return view('welcome', ['dep' => $dep, 'router' => $router]);
 
-    
+
 })->name('home');
 
 Route::get('/login', action: fn() => '<h2>Login</h2>')->name('login');
