@@ -909,14 +909,7 @@
 
 <body class="font-sans antialiased  dark:bg-black dark:text-white/50">
 
-    <pre>
-        {{ $dep ?? ''}}
-
-    </pre>
-
-    <pre>
-        {{ $router->currentRouteName() ?? ''}}
-    </pre>
+    
 
     <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
 

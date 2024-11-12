@@ -14,11 +14,15 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
-       dump($this->app->make('request'));
+       //dump($this->app->make('request'));
+      
     }
+
+
 }
